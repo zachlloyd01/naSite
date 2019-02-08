@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1 align="center">Submit a Comment</h1>
+    <div style="margin-top: 4em; margin-bottom: 4em;">
+    <p>Comment will be submitted as <strong>{{ user.username }}</strong> on {{ date }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn blue-grey darken-1"type="submit" style="float: right;">Submit Comment</button>
+    </form>
+    </div>
+{% endblock %}

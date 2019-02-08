@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+  <br>
+	<h1 align="center">NAHS 2019 Forums</h1>
+	<br>
+	<div class="row">
+    	{% for i in feed %}
+        	<div class="col s12 m6">
+          	<div {% if i.body|length < 400 %}class="card blue-grey lighten-3"{% elif i.body|length < 1000 %}class="card small blue-grey lighten-3"{% elif i.body|length < 1500 %}class="card large blue-grey lighten-3"{% else %}class="card large blue-grey lighten-3"{% endif %}>
+            <div class="card-content dark-text">
+              <span class="card-title">{{ i.title }}</span>
+              <p>{{ i.body|safe }}</p>
+            </div>
+          	</div>
+        	</div>
+      {% empty %}
+      <p align="center">Content coming soon!</p> 
+    	{% endfor %}
+  </div>
+{% endblock %}

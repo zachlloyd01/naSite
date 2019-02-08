@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1 align="center">Account</h1>
+    <h4>Account Information</h4>
+    <ul>
+        <li><p>Your username is <strong>{{ name }}</strong></p></li>
+        <li><p>You have {{ total }} comments!</p></li>
+        <li><p>You cannot edit front page articles.</p></li>
+        <li><p>Click <a href="/reset/">here</a> to change your pasword</p></li>
+        <ol style="list-style-type:none;">
+            <li><p>Would you like to edit front page articles? Click <a href="/app/">here</a> to fill out an application!</p></li>
+        </ol>
+    </ul>
+    
+{% endblock %}

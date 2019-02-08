@@ -1,0 +1,24 @@
+{% extends 'main.html' %}\
+{% block content %}
+    <h1 align="center">Community</h1>
+    {% if user.is_authenticated %}
+        <p align="Center">Add a <a href="/newcomment/">comment</a>!</p>
+    {% else %}
+        <p align="center"><a href="/login">Login</a> or <a href="/register"> register </a>to add a comment!</p>
+    {% endif %}
+    <div class="row">
+      {% for i in comment reversed %}
+          <div class="col s12 m6">
+            <div class="card blue-grey lighten-3">
+            <div class="card-content dark-text">
+              <span class="card-title">{{ i.name }}</span>
+              <p><i>{{ i.date }}</i></p>
+              <p>{{ i.comment|safe }}</p>
+            </div>
+            </div>
+          </div>
+      {% empty %}
+      <p align="center">Be the first to <a href="/newcomment/">add a comment</a>!</p>
+      {% endfor %}
+  </div>
+{% endblock %}
